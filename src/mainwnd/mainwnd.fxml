@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainwnd.mainWndCntrl">
+  <children>
+    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+      <children>
+            <ImageView fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../1.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="exitBtn" alignment="CENTER" layoutX="243.0" layoutY="283.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="214.0" style="-fx-background-radius: 44; -fx-background-color: B57700;" text="Выход" textFill="#e5d168">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="statsBtn" alignment="CENTER" layoutX="236.0" layoutY="231.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="227.0" style="-fx-background-radius: 44; -fx-background-color: B57700;" text="Посмотреть статистику" textFill="#e5d168">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="newcolonyBtn" alignment="CENTER" layoutX="232.0" layoutY="179.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="234.0" style="-fx-background-radius: 44; -fx-background-color: B57700;" text="Создать новую колонию" textFill="#e5d168">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Pane layoutX="223.0" layoutY="97.0" prefHeight="42.0" prefWidth="254.0" style="-fx-background-color: B57700; -fx-background-radius: 44;">
+               <children>
+                  <Label layoutX="6.0" text="Главное меню" textFill="#e5d168">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
