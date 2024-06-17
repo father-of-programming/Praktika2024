@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e33eb14b-e561-4e5f-bb68-8838285c2ba4" name="Changes" comment="Создание проекта JavaFx">
-      <change afterPath="$PROJECT_DIR$/src/mainwnd/assets/1.jpg" afterDir="false" />
+    <list default="true" id="e33eb14b-e561-4e5f-bb68-8838285c2ba4" name="Changes" comment="Установка заднего фона в главном окне">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainwnd/mainwnd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainwnd/mainwnd.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainwnd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWnd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainwnd/assets/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/assets/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainwnd/mainWndCntrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWndCntrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainwnd/mainwnd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWnd.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +35,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2honb296rL8FiW4V46W8mklYAZj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,7 +50,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/megab/IdeaProjects/Praktika2024/src/mainwnd/assets",
+    "last_opened_file_path": "C:/Users/megab/IdeaProjects/Praktika2024/src/main",
     "onboarding.tips.debug.path": "C:/Users/megab/IdeaProjects/tbg/src/Main.java",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
@@ -54,13 +59,18 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\megab\IdeaProjects\Praktika2024\src\main" />
+      <recent name="C:\Users\megab\IdeaProjects\Praktika2024\src\mainwnd\assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\megab\IdeaProjects\Praktika2024\src\main" />
       <recent name="C:\Users\megab\IdeaProjects\tbg\src\mainwnd" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mainwnd.Main" />
+      <option name="MAIN_CLASS_NAME" value="menu.menuWnd" />
       <module name="tbg" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-22.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
@@ -85,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718270935425</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Установка заднего фона в главном окне">
+      <option name="closed" value="true" />
+      <created>1718603093326</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718603093326</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,6 +119,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создание проекта JavaFx" />
-    <option name="LAST_COMMIT_MESSAGE" value="Создание проекта JavaFx" />
+    <MESSAGE value="Установка заднего фона в главном окне" />
+    <option name="LAST_COMMIT_MESSAGE" value="Установка заднего фона в главном окне" />
   </component>
 </project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.menuWndCntrl">
+    <children>
+        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="391.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+            <children>
+                <ImageView fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../menu/assets/1.jpg" />
+                    </image>
+                </ImageView>
+            <MenuBar prefHeight="27.0" prefWidth="700.0" style="-fx-background-color: black; -fx-opacity: 0.8;">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Pane layoutX="500.0" layoutY="27.0" prefHeight="367.0" prefWidth="200.0" style="-fx-background-color: black; -fx-opacity: 0.5;" />
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
