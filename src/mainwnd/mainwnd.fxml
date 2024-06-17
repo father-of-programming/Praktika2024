@@ -17,7 +17,7 @@
       <children>
             <ImageView fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../1.jpg" />
+                  <Image url="@assets/1.jpg" />
                </image>
             </ImageView>
             <Button fx:id="exitBtn" alignment="CENTER" layoutX="243.0" layoutY="283.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="214.0" style="-fx-background-radius: 44; -fx-background-color: B57700;" text="Выход" textFill="#e5d168">
