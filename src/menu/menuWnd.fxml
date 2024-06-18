@@ -11,18 +11,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.menuWndCntrl">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.menuWndCntrl">
   <children>
     <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/1.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="exitBtn" alignment="CENTER" layoutX="243.0" layoutY="283.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="214.0" style="-fx-background-radius: 44; -fx-background-color: B57700;" text="Выход" textFill="#e5d168">
+            <Button fx:id="exitBtn" alignment="CENTER" layoutX="645.0" layoutY="800.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="631.0" style="-fx-background-radius: 44; -fx-background-color: B57700;" text="Выход" textFill="#e5d168">
                <font>
-                  <Font name="Arial" size="18.0" />
+                  <Font name="Arial" size="50.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -31,27 +31,27 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button fx:id="statsBtn" alignment="CENTER" layoutX="236.0" layoutY="231.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="227.0" style="-fx-background-radius: 44; -fx-background-color: B57700;" text="Посмотреть статистику" textFill="#e5d168">
+            <Button fx:id="statsBtn" alignment="CENTER" layoutX="645.0" layoutY="650.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="631.0" style="-fx-background-radius: 44; -fx-background-color: B57700;" text="Посмотреть статистику" textFill="#e5d168">
                <font>
-                  <Font name="Arial" size="18.0" />
+                  <Font name="Arial" size="50.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="newcolonyBtn" alignment="CENTER" layoutX="232.0" layoutY="179.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="234.0" style="-fx-background-radius: 44; -fx-background-color: B57700;" text="Создать новую колонию" textFill="#e5d168">
+            <Button fx:id="newcolonyBtn" alignment="CENTER" layoutX="645.0" layoutY="500.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="631.0" style="-fx-background-radius: 44; -fx-background-color: B57700;" text="Создать новую колонию" textFill="#e5d168">
                <font>
-                  <Font name="Arial" size="18.0" />
+                  <Font name="Arial" size="50.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Pane layoutX="223.0" layoutY="97.0" prefHeight="42.0" prefWidth="254.0" style="-fx-background-color: B57700; -fx-background-radius: 44;">
+            <Pane layoutX="603.0" layoutY="221.0" prefHeight="119.0" prefWidth="714.0" style="-fx-background-color: B57700; -fx-background-radius: 44;">
                <children>
-                  <Label layoutX="6.0" text="Главное меню" textFill="#e5d168">
+                  <Label layoutX="38.0" layoutY="5.0" text="Главное меню" textFill="#e5d168">
                      <font>
-                        <Font name="Arial" size="36.0" />
+                        <Font name="Arial" size="96.0" />
                      </font>
                   </Label>
                </children>
