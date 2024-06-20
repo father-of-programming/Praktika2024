@@ -1,6 +1,5 @@
 package menu;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -9,10 +8,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCombination;
-import javafx.stage.Modality;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import javax.swing.text.html.ImageView;
 
@@ -28,10 +27,7 @@ public class menuWndCntrl {
     private Button exitBtn;
 
     @FXML
-    private Button newcolonyBtn;
-
-    @FXML
-    private Button statsBtn;
+    private Button startBtn;
 
     @FXML
     private ImageView imageview;
@@ -42,11 +38,11 @@ public class menuWndCntrl {
             System.exit(0);
         });
 
-        newcolonyBtn.setOnAction(actionEvent -> {
-            newcolonyBtn.getScene().getWindow().hide();
+        startBtn.setOnAction(actionEvent -> {
+            startBtn.getScene().getWindow().hide();
 
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/main/caricaWnd.fxml"));
+            loader.setLocation(getClass().getResource("/main/mainWnd.fxml"));
             try{
                 loader.load();
             }catch (IOException e){
@@ -56,13 +52,10 @@ public class menuWndCntrl {
             Parent root = loader.getRoot();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Муравьиная колония");
-            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setTitle("ORVI simulation");
+            stage.setMaximized(true);
             stage.showAndWait();
-        });
 
-        statsBtn.setOnAction(actionEvent -> {
-            System.out.println("stats");
         });
     }
 

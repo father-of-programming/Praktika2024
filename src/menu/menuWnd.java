@@ -12,9 +12,9 @@ public class menuWnd extends Application{
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("menuWnd.fxml"));
-        stage.setTitle("Colony");
+        stage.setTitle("ORVI");
         stage.setMaximized(true);
-        stage.setScene(new Scene(root,1920, 1080));
+        stage.setScene(new Scene(root,1800, 900));
         stage.show();
     }
 
