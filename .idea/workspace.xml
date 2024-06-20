@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e33eb14b-e561-4e5f-bb68-8838285c2ba4" name="Changes" comment="Создание проекта JavaFx">
-      <change afterPath="$PROJECT_DIR$/src/mainwnd/assets/1.jpg" afterDir="false" />
+    <list default="true" id="e33eb14b-e561-4e5f-bb68-8838285c2ba4" name="Changes" comment="Удаление">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainwnd/mainwnd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainwnd/mainwnd.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/caricaWnd.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/caricaWnd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/caricaWndCntrl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mainWnd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mainWnd.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/mainWndCntrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mainWndCntrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/menuWnd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWnd.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/menuWnd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWnd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/menuWndCntrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWndCntrl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +29,25 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;father-of-programming&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/father-of-programming/Praktika2024&quot;,
+    &quot;accountId&quot;: &quot;7f11ae9a-b82a-41d6-9801-539d052188b7&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -32,7 +55,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2honb296rL8FiW4V46W8mklYAZj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,7 +70,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/megab/IdeaProjects/Praktika2024/src/mainwnd/assets",
+    "last_opened_file_path": "C:/Users/megab/IdeaProjects/CyberBiology",
     "onboarding.tips.debug.path": "C:/Users/megab/IdeaProjects/tbg/src/Main.java",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
@@ -54,13 +79,19 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\megab\IdeaProjects\Praktika2024\src\main" />
+      <recent name="C:\Users\megab\IdeaProjects\Praktika2024\src\mainwnd\assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\megab\IdeaProjects\Praktika2024\src\main" />
+      <recent name="C:\Users\megab\IdeaProjects\Praktika2024\src\menu" />
       <recent name="C:\Users\megab\IdeaProjects\tbg\src\mainwnd" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mainwnd.Main" />
+      <option name="MAIN_CLASS_NAME" value="menu.menuWnd" />
       <module name="tbg" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-22.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
@@ -85,7 +116,31 @@
       <option name="project" value="LOCAL" />
       <updated>1718270935425</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Установка заднего фона в главном окне">
+      <option name="closed" value="true" />
+      <created>1718603093326</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718603093326</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Создание главного окна и попытка открыть его">
+      <option name="closed" value="true" />
+      <created>1718604934376</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1718604934376</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Создание главного окна, его открытие и доп окна с выбором начального количества &quot;цариц&quot;. Кнопка &quot;Назад&quot; в доп окне не работает">
+      <option name="closed" value="true" />
+      <created>1718690481935</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718690481935</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,6 +156,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создание проекта JavaFx" />
-    <option name="LAST_COMMIT_MESSAGE" value="Создание проекта JavaFx" />
+    <MESSAGE value="Установка заднего фона в главном окне" />
+    <MESSAGE value="Создание главного окна и попытка открыть его" />
+    <MESSAGE value="Создание главного окна, его открытие и доп окна с выбором начального количества &quot;цариц&quot;. Кнопка &quot;Назад&quot; в доп окне не работает" />
+    <MESSAGE value="Удаление" />
+    <option name="LAST_COMMIT_MESSAGE" value="Удаление" />
   </component>
 </project>
