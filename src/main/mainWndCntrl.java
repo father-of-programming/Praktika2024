@@ -8,6 +8,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import java.util.Random;
 
 public class mainWndCntrl {
 
@@ -20,9 +22,9 @@ public class mainWndCntrl {
     private void updateGrid(GridPane grid, Human human) {
         javafx.application.Platform.runLater(() -> {
             grid.getChildren().clear();
-            Circle circle = new Circle(10);
-            circle.setFill(Color.RED);
-            grid.add(circle, human.getX(), human.getY());
+            Rectangle rectangle = new Rectangle(192,98);
+            rectangle.setFill(Color.BLACK);
+            grid.add(rectangle, human.getX(), human.getY());
         });
     }
 
@@ -40,14 +42,18 @@ public class mainWndCntrl {
 
         Human human = new Human(0, 2, 0, 0);
 
+        new Thread(() ->{
+            try {
+                while (true) {
+                    human.move();
+                    updateGrid(gridPane, human);
+                    Thread.sleep(500);
+                }
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }).start();
 
-        human.move();
-        updateGrid(gridPane, human);
-
-        /*while (true) {
-            human.move();
-            updateGrid(gridPane, human);
-        }*/
 
     }
 

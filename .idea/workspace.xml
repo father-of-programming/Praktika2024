@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e33eb14b-e561-4e5f-bb68-8838285c2ba4" name="Changes" comment="Удаление">
+    <list default="true" id="e33eb14b-e561-4e5f-bb68-8838285c2ba4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/caricaWnd.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/caricaWnd.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/caricaWndCntrl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mainWnd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mainWnd.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mainWndCntrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mainWndCntrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/menuWnd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWnd.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/menuWnd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWnd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/menuWndCntrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWndCntrl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +65,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/megab/IdeaProjects/CyberBiology",
+    "last_opened_file_path": "C:/Users/megab/IdeaProjects/Praktika2024",
     "onboarding.tips.debug.path": "C:/Users/megab/IdeaProjects/tbg/src/Main.java",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
@@ -140,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718690481935</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Переход с муравьев на симуляцию распространения орви. Добавление класса Human и попытка дать ему возможность передвигаться по gridPane">
+      <option name="closed" value="true" />
+      <created>1718892947113</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718892947113</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +163,7 @@
     <MESSAGE value="Создание главного окна и попытка открыть его" />
     <MESSAGE value="Создание главного окна, его открытие и доп окна с выбором начального количества &quot;цариц&quot;. Кнопка &quot;Назад&quot; в доп окне не работает" />
     <MESSAGE value="Удаление" />
-    <option name="LAST_COMMIT_MESSAGE" value="Удаление" />
+    <MESSAGE value="Переход с муравьев на симуляцию распространения орви. Добавление класса Human и попытка дать ему возможность передвигаться по gridPane" />
+    <option name="LAST_COMMIT_MESSAGE" value="Переход с муравьев на симуляцию распространения орви. Добавление класса Human и попытка дать ему возможность передвигаться по gridPane" />
   </component>
 </project>
