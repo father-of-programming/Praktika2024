@@ -43,17 +43,30 @@ public class Human {
                 if (x < 9) x++;
                 break;
             case 4: // Top left
-                if (y > 0 && x > 0) y--; x--;
+                if (y > 0 && x > 0) {
+                    y--;
+                    x--;
+                }
                 break;
             case 5: // Top right
-                if (y > 0 && x < 9) y--; x++;
+                if (y > 0 && x < 9) {
+                    y--;
+                    x++;
+                }
                 break;
             case 6: // Bottom left
-                if (y < 9 && x > 0) y++; x--;
+                if (y < 9 && x > 0) {
+                    y++;
+                    x--;
+                }
                 break;
             case 7: // Bottom right
-                if (y < 9 && x < 9) y++; x++;
+                if (y < 9 && x < 9) {
+                    y++;
+                    x++;
+                }
                 break;
+            default: break;
         }
     }
 }
