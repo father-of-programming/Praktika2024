@@ -19,12 +19,21 @@ public class mainWndCntrl {
     @FXML
     private GridPane gridPane;
 
-    private void updateGrid(GridPane grid, Human human) {
+    private void updateGrid(GridPane grid, Human ... humans) {
         javafx.application.Platform.runLater(() -> {
             grid.getChildren().clear();
-            Rectangle rectangle = new Rectangle(192,98);
-            rectangle.setFill(Color.BLACK);
-            grid.add(rectangle, human.getX(), human.getY());
+            for (Human human : humans) {
+                Rectangle rectangle = new Rectangle(192, 98);
+
+                if (human.getState() == 2) {
+                    rectangle.setFill(Color.GREEN);
+                } else if (human.getState() == 1) {
+                    rectangle.setFill(Color.YELLOW);
+                } else {
+                    rectangle.setFill(Color.RED);
+                }
+                grid.add(rectangle, human.getX(), human.getY());
+            }
         });
     }
 
@@ -40,13 +49,16 @@ public class mainWndCntrl {
             System.exit(0);
         });
 
-        Human human = new Human(0, 2, 0, 0);
+        Human human = new Human(new Random().nextInt(3), 2, 1, 1);
+
+        Human human2 = new Human(new Random().nextInt(3), 2, 4, 4);
 
         new Thread(() ->{
             try {
                 while (true) {
                     human.move();
-                    updateGrid(gridPane, human);
+                    human2.move();
+                    updateGrid(gridPane, human, human2);
                     Thread.sleep(500);
                 }
             }catch (InterruptedException e){

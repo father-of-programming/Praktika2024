@@ -9,14 +9,12 @@ public class Human {
     private int y;
     private int adr;
     private int direction;
-    private Random random;
 
     public Human(int state, int immunity, int x, int y){
         this.state = state;
         this.immunity = immunity;
         this.x = x;
         this.y = y;
-        this.random = new Random();
     }
 
     public int getX() {
@@ -27,8 +25,12 @@ public class Human {
         return y;
     }
 
+    public int getState() { return state; }
+
+    public int getImmunity() { return immunity; }
+
     public void move(){
-        int direction = random.nextInt(8);
+        int direction = new Random().nextInt(8);
         switch (direction) {
             case 0: // Up
                 if (y > 0) y--;

@@ -1,0 +1,19 @@
+Index: src/main/mainWndCntrl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main;\r\n\r\nimport com.sun.scenario.animation.shared.FiniteClipEnvelope;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.MenuBar;\r\nimport javafx.scene.control.MenuItem;\r\nimport javafx.scene.layout.GridPane;\r\nimport javafx.scene.layout.Pane;\r\nimport javafx.scene.paint.Color;\r\nimport javafx.scene.shape.Circle;\r\nimport javafx.scene.shape.Rectangle;\r\nimport java.util.Random;\r\n\r\npublic class mainWndCntrl {\r\n\r\n    @FXML\r\n    private MenuItem exitBtn;\r\n\r\n    @FXML\r\n    private GridPane gridPane;\r\n\r\n    private void updateGrid(GridPane grid, Human human) {\r\n        javafx.application.Platform.runLater(() -> {\r\n            grid.getChildren().clear();\r\n            Rectangle rectangle = new Rectangle(192,98);\r\n            rectangle.setFill(Color.BLACK);\r\n            grid.add(rectangle, human.getX(), human.getY());\r\n        });\r\n    }\r\n\r\n    @FXML\r\n    private MenuBar menuBar;\r\n\r\n    @FXML\r\n    private Pane paneStngs;\r\n\r\n    @FXML\r\n    void initialize() {\r\n        exitBtn.setOnAction(actionEvent -> {\r\n            System.exit(0);\r\n        });\r\n\r\n        Human human = new Human(0, 2, 0, 0);\r\n\r\n        new Thread(() ->{\r\n            try {\r\n                while (true) {\r\n                    human.move();\r\n                    updateGrid(gridPane, human);\r\n                    Thread.sleep(500);\r\n                }\r\n            }catch (InterruptedException e){\r\n                e.printStackTrace();\r\n            }\r\n        }).start();\r\n\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1251
+===================================================================
+diff --git a/src/main/mainWndCntrl.java b/src/main/mainWndCntrl.java
+--- a/src/main/mainWndCntrl.java	(revision 26ba5a2a8aa6b008dbf07f7b73d732d584c7330d)
++++ b/src/main/mainWndCntrl.java	(date 1718942018183)
+@@ -9,7 +9,7 @@
+ import javafx.scene.paint.Color;
+ import javafx.scene.shape.Circle;
+ import javafx.scene.shape.Rectangle;
+-import java.util.Random;
++import java.util.Random;//
+ 
+ public class mainWndCntrl {
+ 

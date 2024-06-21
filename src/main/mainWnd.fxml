@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
@@ -34,8 +33,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <Pane fx:id="paneStngs" layoutX="1720.0" layoutY="27.0" style="-fx-background-color: black; -fx-opacity: 0.5;" />
-            <GridPane fx:id="gridPane" gridLinesVisible="true" hgap="8.0" layoutY="26.0" prefHeight="982.0" prefWidth="1920.0" style="-fx-border-color: black;" vgap="8.0">
+            <GridPane fx:id="gridPane" gridLinesVisible="true" layoutY="26.0" prefHeight="982.0" prefWidth="1920.0" style="-fx-border-color: black; -fx-grid-lines-visible: true;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
