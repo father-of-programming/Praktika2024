@@ -9,7 +9,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
+import java.util.Vector;
 
 public class mainWndCntrl {
 
@@ -56,8 +60,13 @@ public class mainWndCntrl {
         new Thread(() ->{
             try {
                 while (true) {
-                    human.move();
-                    human2.move();
+                    Set<String> occupiedPositions = new HashSet<>();
+                    occupiedPositions.add(human.getPosition());
+                    occupiedPositions.add(human2.getPosition());
+                    human.move(occupiedPositions);
+                    occupiedPositions.add(human.getPosition());
+
+                    human2.move(occupiedPositions);
                     updateGrid(gridPane, human, human2);
                     Thread.sleep(500);
                 }

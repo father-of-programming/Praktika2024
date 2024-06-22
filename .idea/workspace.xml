@@ -7,8 +7,8 @@
     <list default="true" id="e33eb14b-e561-4e5f-bb68-8838285c2ba4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Human.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/mainWnd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mainWnd.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mainWndCntrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mainWndCntrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/menuWnd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWnd.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +65,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/megab/IdeaProjects/test",
+    "last_opened_file_path": "C:/Users/megab/IdeaProjects/CyberBiology",
     "onboarding.tips.debug.path": "C:/Users/megab/IdeaProjects/tbg/src/Main.java",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
@@ -143,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718892947113</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Добавление возможности увеличения кол-ва Human на gridPane. Перемещаются по всей панели вне зависимости от положения других Human">
+      <option name="closed" value="true" />
+      <created>1718946073880</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718946073880</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,6 +172,7 @@
     <MESSAGE value="Создание главного окна, его открытие и доп окна с выбором начального количества &quot;цариц&quot;. Кнопка &quot;Назад&quot; в доп окне не работает" />
     <MESSAGE value="Удаление" />
     <MESSAGE value="Переход с муравьев на симуляцию распространения орви. Добавление класса Human и попытка дать ему возможность передвигаться по gridPane" />
-    <option name="LAST_COMMIT_MESSAGE" value="Переход с муравьев на симуляцию распространения орви. Добавление класса Human и попытка дать ему возможность передвигаться по gridPane" />
+    <MESSAGE value="Добавление возможности увеличения кол-ва Human на gridPane. Перемещаются по всей панели вне зависимости от положения других Human" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление возможности увеличения кол-ва Human на gridPane. Перемещаются по всей панели вне зависимости от положения других Human" />
   </component>
 </project>
