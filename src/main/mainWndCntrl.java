@@ -1,24 +1,34 @@
 package main;
 
-import com.sun.scenario.animation.shared.FiniteClipEnvelope;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
-import java.util.Vector;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class mainWndCntrl {
 
     @FXML
     private MenuItem exitBtn;
+
+    @FXML
+    private MenuItem stopBtn;
+
+    /*private boolean stopsimulation(){
+        AtomicBoolean isStopped = new AtomicBoolean(false);
+        stopBtn.setOnAction(actionEvent -> {
+            isStopped.set(true);
+            System.out.println("STOP SIMULATION RIGHT NOW!!!!!!!!!");
+        });
+        return isStopped.get();
+    }*/
 
     @FXML
     private GridPane gridPane;
@@ -67,6 +77,15 @@ public class mainWndCntrl {
                     occupiedPositions.add(human.getPosition());
 
                     human2.move(occupiedPositions);
+
+                    if (human.isSurrounded(occupiedPositions)) {
+                        System.out.println("Person 1 is surrounded!");
+                    }
+
+                    if (human2.isSurrounded(occupiedPositions)) {
+                        System.out.println("Person 2 is surrounded!");
+                    }
+
                     updateGrid(gridPane, human, human2);
                     Thread.sleep(500);
                 }

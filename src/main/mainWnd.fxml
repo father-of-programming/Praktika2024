@@ -17,6 +17,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
+                        <MenuItem fx:id="stopBtn" mnemonicParsing="false" text="Stop simulation" />
                         <MenuItem fx:id="backBtn" mnemonicParsing="false" text="Back" />
                     <MenuItem fx:id="exitBtn" mnemonicParsing="false" text="Close app" />
                   </items>

@@ -84,14 +84,35 @@ public class Human {
             x = newX;
             y = newY;
         }
-        else if(state > 0){
+        /*else if(state > 0){
             state -=1;
-        }
+        }*/
         newX = x;
         newY = y;
     }
 
     public String getPosition(){
         return x+","+y;
+    }
+
+    public boolean isSurrounded(Set<String> occupiedPositions) {
+        int[][] directions = {
+                {0, -1}, // Up
+                {0, 1},  // Down
+                {-1, 0}, // Left
+                {1, 0}   // Right
+        };
+
+        for (int[] direction : directions) {
+            int newX = x + direction[0];
+            int newY = y + direction[1];
+            if (newX >= 0 && newX < GRID_SIZE && newY >= 0 && newY < GRID_SIZE) {
+                if (!occupiedPositions.contains(newX + "," + newY)) {
+                    return false; // Found at least one free adjacent cell
+                }
+            }
+        }
+
+        return true; // All adjacent cells are occupied
     }
 }
