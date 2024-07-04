@@ -2,10 +2,7 @@ package main;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -22,22 +19,14 @@ public class mainWndCntrl {
     private List<Human> people;
     private int days;
     private Random random;
+    private AtomicBoolean running = new AtomicBoolean();
     private int speed = 500;
 
     @FXML
     private MenuItem exitBtn;
 
     @FXML
-    private MenuItem stopBtn;
-
-    /*private boolean stopsimulation(){
-        AtomicBoolean isStopped = new AtomicBoolean(false);
-        stopBtn.setOnAction(actionEvent -> {
-            isStopped.set(true);
-            System.out.println("STOP SIMULATION RIGHT NOW!!!!!!!!!");
-        });
-        return isStopped.get();
-    }*/
+    private MenuItem stopBtnMenu;
 
     @FXML
     private GridPane gridPane;
@@ -49,6 +38,10 @@ public class mainWndCntrl {
     private Slider speedSlider;
     @FXML
     private Label speedLabel;
+    @FXML
+    private Button stopBtn;
+    @FXML
+    private Button resumeBtn;
 
     @FXML
     void initialize() {
@@ -56,6 +49,18 @@ public class mainWndCntrl {
             System.exit(0);
         });
 
+        stopBtn.setOnAction(event -> {
+            running.set(false);
+        });
+        resumeBtn.setOnAction(event -> {
+            if (!running.get()) {
+                running.set(true);
+                resumeBtn.setText("Resume");
+                startSimulation();
+            }
+        });
+
+        startSimulation();
 
         speedSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             speed = newValue.intValue();
@@ -78,8 +83,15 @@ public class mainWndCntrl {
 
         updateGrid(gridPane);
 
-        new Thread(() ->{
+
+    }
+
+    public void startSimulation(){
+        Thread simulationThread = new Thread(() ->{
             while(true) {
+                if (!running.get()) {
+                    break;
+                }
                 update(gridPane, people);
                 Platform.runLater(() -> updateGrid(gridPane));
                 try{
@@ -88,9 +100,9 @@ public class mainWndCntrl {
                     e.printStackTrace();
                 }
             }
-        }).start();
+        });
+        simulationThread.start();
     }
-
     private void update(GridPane grid, List<Human> people) {
         int i, j;
         for (i = 0; i < GRID_SIZE; i++) {

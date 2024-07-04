@@ -20,7 +20,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                        <MenuItem fx:id="stopBtn" mnemonicParsing="false" text="Stop simulation" />
+                        <MenuItem fx:id="stopBtn1" mnemonicParsing="false" text="Stop simulation" />
                         <MenuItem fx:id="backBtn" mnemonicParsing="false" text="Back" />
                     <MenuItem fx:id="exitBtn" mnemonicParsing="false" text="Close app" />
                   </items>
@@ -133,11 +133,12 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <Button layoutX="1005.0" layoutY="839.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Stop" />
+            <Button fx:id="stopBtn" layoutX="1005.0" layoutY="839.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Stop" />
             <Slider fx:id="speedSlider" layoutX="908.0" layoutY="160.0" majorTickUnit="100.0" max="1000.0" min="100.0" minorTickCount="0" prefHeight="38.0" prefWidth="278.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="500.0" />
             <Slider layoutX="958.0" layoutY="240.0" prefHeight="14.0" prefWidth="196.0" />
             <Slider layoutX="958.0" layoutY="317.0" prefHeight="14.0" prefWidth="196.0" />
             <Label fx:id="speedLabel" layoutX="986.0" layoutY="116.0" text="Скорость симуляции (мс)" />
+            <Button fx:id="resumeBtn" layoutX="1030.0" layoutY="786.0" mnemonicParsing="false" text="Start" />
             </children>
         </AnchorPane>
     </children>
