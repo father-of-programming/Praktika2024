@@ -2,8 +2,10 @@ package main;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -17,6 +19,10 @@ import static utils.Constants.HUMAN_SIZE;
 
 
 public class mainWndCntrl {
+    private List<Human> people;
+    private int days;
+    private Random random;
+    private int speed = 500;
 
     @FXML
     private MenuItem exitBtn;
@@ -39,9 +45,10 @@ public class mainWndCntrl {
     @FXML
     private MenuBar menuBar;
 
-    private List<Human> people;
-    private int days;
-    private Random random;
+    @FXML
+    private Slider speedSlider;
+    @FXML
+    private Label speedLabel;
 
     @FXML
     void initialize() {
@@ -49,6 +56,10 @@ public class mainWndCntrl {
             System.exit(0);
         });
 
+
+        speedSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            speed = newValue.intValue();
+        });
 
         people = new ArrayList<>();
         this.days = 30;
@@ -63,7 +74,7 @@ public class mainWndCntrl {
             people.get(random.nextInt(GRID_SIZE * GRID_SIZE)).bornInfect();
         }*/
 
-        people.get(1225).bornInfect();
+        people.get(GRID_SIZE*GRID_SIZE/2 + 25).bornInfect();
 
         updateGrid(gridPane);
 
@@ -72,7 +83,7 @@ public class mainWndCntrl {
                 update(gridPane, people);
                 Platform.runLater(() -> updateGrid(gridPane));
                 try{
-                    Thread.sleep(1000);             //менять скорость симуляции
+                    Thread.sleep(speed);             //менять скорость симуляции
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }

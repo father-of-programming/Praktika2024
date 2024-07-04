@@ -134,10 +134,10 @@
               </rowConstraints>
             </GridPane>
             <Button layoutX="1005.0" layoutY="839.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Stop" />
-            <Slider fx:id="speedSlider" layoutX="908.0" layoutY="160.0" majorTickUnit="100.0" max="1000.0" min="100.0" minorTickCount="0" prefHeight="38.0" prefWidth="278.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+            <Slider fx:id="speedSlider" layoutX="908.0" layoutY="160.0" majorTickUnit="100.0" max="1000.0" min="100.0" minorTickCount="0" prefHeight="38.0" prefWidth="278.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="500.0" />
             <Slider layoutX="958.0" layoutY="240.0" prefHeight="14.0" prefWidth="196.0" />
             <Slider layoutX="958.0" layoutY="317.0" prefHeight="14.0" prefWidth="196.0" />
-            <Label layoutX="986.0" layoutY="116.0" text="Скорость симуляции (мс)" />
+            <Label fx:id="speedLabel" layoutX="986.0" layoutY="116.0" text="Скорость симуляции (мс)" />
             </children>
         </AnchorPane>
     </children>
