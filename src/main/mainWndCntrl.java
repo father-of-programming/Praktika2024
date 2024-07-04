@@ -1,5 +1,6 @@
 package main;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -8,10 +9,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import static utils.Constants.*;
+import static utils.Constants.HUMAN_SIZE;
+
 
 public class mainWndCntrl {
 
@@ -33,29 +36,12 @@ public class mainWndCntrl {
     @FXML
     private GridPane gridPane;
 
-    private void updateGrid(GridPane grid, Human ... humans) {
-        javafx.application.Platform.runLater(() -> {
-            grid.getChildren().clear();
-            for (Human human : humans) {
-                Rectangle rectangle = new Rectangle(192, 98);
-
-                if (human.getState() == 2) {
-                    rectangle.setFill(Color.GREEN);
-                } else if (human.getState() == 1) {
-                    rectangle.setFill(Color.YELLOW);
-                } else {
-                    rectangle.setFill(Color.RED);
-                }
-                grid.add(rectangle, human.getX(), human.getY());
-            }
-        });
-    }
-
     @FXML
     private MenuBar menuBar;
 
-    @FXML
-    private Pane paneStngs;
+    private List<Human> people;
+    private int days;
+    private Random random;
 
     @FXML
     void initialize() {
@@ -63,38 +49,94 @@ public class mainWndCntrl {
             System.exit(0);
         });
 
-        Human human = new Human(new Random().nextInt(3), 2, 1, 1);
 
-        Human human2 = new Human(new Random().nextInt(3), 2, 4, 4);
+        people = new ArrayList<>();
+        this.days = 30;
+        random = new Random();
+
+        for (int i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
+            people.add(new Human());
+        }
+
+        /*/ Инфицируем начальное количество людей                               //начальное колво больных
+        for (int i = 0; i < 5; i++) {
+            people.get(random.nextInt(GRID_SIZE * GRID_SIZE)).bornInfect();
+        }*/
+
+        people.get(1225).bornInfect();
+
+        updateGrid(gridPane);
 
         new Thread(() ->{
-            try {
-                while (true) {
-                    Set<String> occupiedPositions = new HashSet<>();
-                    occupiedPositions.add(human.getPosition());
-                    occupiedPositions.add(human2.getPosition());
-                    human.move(occupiedPositions);
-                    occupiedPositions.add(human.getPosition());
-
-                    human2.move(occupiedPositions);
-
-                    if (human.isSurrounded(occupiedPositions)) {
-                        System.out.println("Person 1 is surrounded!");
-                    }
-
-                    if (human2.isSurrounded(occupiedPositions)) {
-                        System.out.println("Person 2 is surrounded!");
-                    }
-
-                    updateGrid(gridPane, human, human2);
-                    Thread.sleep(500);
+            while(true) {
+                update(gridPane, people);
+                Platform.runLater(() -> updateGrid(gridPane));
+                try{
+                    Thread.sleep(1000);             //менять скорость симуляции
+                }catch(InterruptedException e){
+                    e.printStackTrace();
                 }
-            }catch (InterruptedException e){
-                e.printStackTrace();
             }
         }).start();
-
-
     }
 
+    private void update(GridPane grid, List<Human> people) {
+        int i, j;
+        for (i = 0; i < GRID_SIZE; i++) {
+            for (j = 0; j < GRID_SIZE; j++) {
+                Human person = people.get(i * GRID_SIZE + j);
+                if (person.infectedIsNear(people, i, j)) {
+                    person.infect();
+                }
+                if (person.getState() == Human.State.INFECTED) {
+                    int randIndex = person.randHumanFromRadius(5, i, j);       //менять радиус рандомного заражения
+                    Human farPerson = people.get(randIndex);
+                    farPerson.infect();
+                    farPerson.update();
+                }
+                person.update();
+            }
+        }
+    }
+
+    private void updateGrid(GridPane grid) {
+        grid.getChildren().clear();
+
+        for (int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
+                Human person = people.get(i * GRID_SIZE + j);
+                Rectangle rect = new Rectangle(HUMAN_SIZE, HUMAN_SIZE);
+
+                switch (person.getState()) {
+                    case HEALTHY:
+                        switch(person.getImmunity()){
+                            case 0:
+                                rect.setFill(Color.rgb(255, 213, 0));
+                                break;
+                            case 1:
+                                rect.setFill(Color.rgb(255, 250, 107));
+                                break;
+                            case 2:
+                                rect.setFill(Color.rgb(255, 254, 209));
+                                break;
+                            case 3:
+                                rect.setFill(Color.WHITE);
+                                break;
+                        }
+                        break;
+                    case INFECTED:
+                        rect.setFill(Color.rgb(255, 68, 0));
+                        break;
+                    case RECOVERED:
+                        rect.setFill(Color.rgb(85, 255, 0));
+                        break;
+                    case DEAD:
+                        rect.setFill(Color.BLACK);
+                        break;
+                }
+
+                grid.add(rect, j, i);
+            }
+        }
+    }
 }

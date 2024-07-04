@@ -53,7 +53,6 @@ public class menuWndCntrl {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("ORVI simulation");
-            stage.setMaximized(true);
             stage.showAndWait();
 
         });

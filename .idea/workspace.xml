@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e33eb14b-e561-4e5f-bb68-8838285c2ba4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
+    <list default="true" id="e33eb14b-e561-4e5f-bb68-8838285c2ba4" name="Changes" comment="Human теперь не могут быть на одной клетке. Их цвет (состояние) меняется если столкнутся с препятствием. Теперь GridPane замкнут по горизонтали">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_06_2024_11_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_06_2024_11_02__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mainWnd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mainWnd.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/mainWndCntrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/mainWndCntrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/menuWnd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWnd.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/menuWnd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWnd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/menuWndCntrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/menuWndCntrl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +70,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/megab/IdeaProjects/CyberBiology",
+    "last_opened_file_path": "C:/Users/megab/IdeaProjects/Praktika2024",
     "onboarding.tips.debug.path": "C:/Users/megab/IdeaProjects/tbg/src/Main.java",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",

@@ -1,118 +1,122 @@
 package main;
+import javafx.scene.layout.GridPane;
 
 import java.util.Random;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
-import main.mainWndCntrl;
+import static java.lang.Math.abs;
+import static java.lang.Math.sqrt;
+import static utils.Constants.GRID_SIZE;
 
-public class Human {
-    private int state; //0 - здоровый, 1 - больной, 2 - выздоровевший
-    private int immunity; //0 - 2
-    private int x;
-    private int y;
-    private int adr;
-    private int direction;
-    private static final int GRID_SIZE = 9;
+class Human {
+    enum State {HEALTHY, INFECTED, RECOVERED, DEAD}
 
-    public Human(int state, int immunity, int x, int y){
-        this.state = state;
-        this.immunity = immunity;
-        this.x = x;
-        this.y = y;
+    private State state;
+    private int daysInfected;
+    private int daysRecovered;
+    private int immunity;
+    private Random random;
+
+
+    public Human() {
+        this.state = State.HEALTHY;
+        this.daysInfected = 0;
+        random = new Random();
+        this.immunity = random.nextInt(4);
     }
 
-    public int getX() {
-        return x;
+    public State getState() {
+        return state;
     }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getState() { return state; }
-
     public int getImmunity() { return immunity; }
 
-    public void move(Set<String> occupiedPositions){
-
-        int newX = x;
-        int newY = y;
-        int direction = new Random().nextInt(8);
-
-        switch (direction) {
-            case 0: // Up
-                if (y > 0) newY--;
-                break;
-            case 1: // Down
-                if (y < GRID_SIZE) newY++;
-                break;
-            case 2: // Left
-                if (x > 0) newX--;
-                else newX = GRID_SIZE;
-                break;
-            case 3: // Right
-                if (x < GRID_SIZE) newX++;
-                else newX = 0;
-                break;
-            case 4: // Top left
-                if (y > 0 && x > 0) {
-                    newY--;
-                    newX--;
-                }
-                break;
-            case 5: // Top right
-                if (y > 0 && x < GRID_SIZE) {
-                    newY--;
-                    newX++;
-                }
-                break;
-            case 6: // Bottom left
-                if (y < GRID_SIZE && x > 0) {
-                    newY++;
-                    newX--;
-                }
-                break;
-            case 7: // Bottom right
-                if (y < GRID_SIZE && x < GRID_SIZE) {
-                    newY++;
-                    newX++;
-                }
-                break;
-            default: break;
+    public void bornInfect(){
+        if (state == State.HEALTHY){
+            state = State.INFECTED;
+            this.immunity = 0;
         }
-        if (!occupiedPositions.contains(newX + "," + newY)){
-            x = newX;
-            y = newY;
-        }
-        /*else if(state > 0){
-            state -=1;
-        }*/
-        newX = x;
-        newY = y;
     }
 
-    public String getPosition(){
-        return x+","+y;
+    public void infect() {                      //Менять вероятность заражения
+        switch(this.immunity){
+            case 0:
+                if (random.nextDouble() < 0.5) {state = State.INFECTED;}
+                break;
+            case 1:
+                if (random.nextDouble() < 0.25) {state = State.INFECTED;}
+                this.immunity--;
+                break;
+            case 2:
+                if (random.nextDouble() < 0.125) {state = State.INFECTED;}
+                this.immunity--;
+                break;
+            case 3:
+                if (random.nextDouble() < 0.0625) {state = State.INFECTED;}
+                this.immunity--;
+                break;
+        }
     }
 
-    public boolean isSurrounded(Set<String> occupiedPositions) {
-        int[][] directions = {
-                {0, -1}, // Up
-                {0, 1},  // Down
-                {-1, 0}, // Left
-                {1, 0}   // Right
-        };
-
-        for (int[] direction : directions) {
-            int newX = x + direction[0];
-            int newY = y + direction[1];
-            if (newX >= 0 && newX < GRID_SIZE && newY >= 0 && newY < GRID_SIZE) {
-                if (!occupiedPositions.contains(newX + "," + newY)) {
-                    return false; // Found at least one free adjacent cell
-                }
+    public void recover() {
+        if (state == State.INFECTED) {
+            if (random.nextDouble() < 0.03) {
+                state = State.DEAD;
+            }
+            else {
+                state = State.RECOVERED;
+                this.immunity = random.nextInt(4);
             }
         }
+    }
 
-        return true; // All adjacent cells are occupied
+    public void update() {
+        if (state == State.INFECTED) {
+            daysInfected++;
+            if (daysInfected > 5) {         //менять колво дней болезни до выздоровления
+                recover();
+            }
+        }
+    }
+
+    public boolean infectedIsNear(List<Human> people, int i, int j){
+        if (this.getState() == State.HEALTHY) {
+            if (j > 0) {
+                Human HumanMinX = people.get(i * GRID_SIZE + j - 1);
+                if (HumanMinX.state == State.INFECTED) return true;
+            }
+
+            if (i > 0) {
+                Human HumanMinY = people.get((i - 1) * GRID_SIZE + j);
+                if (HumanMinY.state == State.INFECTED) return true;
+            }
+
+            if (j < GRID_SIZE - 1) {
+                Human HumanPlsX = people.get(i * GRID_SIZE + j + 1);
+                if (HumanPlsX.state == State.INFECTED) return true;
+            }
+
+            if (i < GRID_SIZE - 1) {
+                Human HumanPlsY = people.get((i + 1) * GRID_SIZE + j);
+                if (HumanPlsY.state == State.INFECTED) return true;
+            }
+        }
+        return false;
+    }
+
+    public int randHumanFromRadius(int r, int i, int j){
+        int board = random.nextInt(-r - 1, r + 1);
+        i += board;
+        if (i < 0) i = 0;
+        else if (i > 49) i = 49;
+        int temp = random.nextInt(2);
+        if (temp == 0) temp = -1;
+        temp = temp * (r - abs(board));
+        j += temp;
+        if (j < 0) j = 0;
+        int res = i * GRID_SIZE + j;
+
+        if (res < GRID_SIZE * GRID_SIZE) return res;
+        else return GRID_SIZE * GRID_SIZE - 1;
     }
 }

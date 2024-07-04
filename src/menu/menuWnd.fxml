@@ -11,16 +11,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.menuWndCntrl">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.menuWndCntrl">
   <children>
-    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="-620.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/2.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="exitBtn" alignment="CENTER" layoutX="654.0" layoutY="728.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="631.0" style="-fx-background-radius: 44; -fx-background-color: #0046A0;" text="Выход" textFill="#e4e4e1">
+            <Button fx:id="exitBtn" alignment="CENTER" layoutX="185.0" layoutY="589.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="631.0" style="-fx-background-radius: 44; -fx-background-color: #0046A0;" text="Выход" textFill="#e4e4e1">
                <font>
                   <Font name="Arial" size="50.0" />
                </font>
@@ -31,7 +31,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button fx:id="startBtn" alignment="CENTER" layoutX="653.0" layoutY="579.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="631.0" style="-fx-background-radius: 44; -fx-background-color: #0046A0;" text="Начать симуляцию" textFill="#e4e4e1">
+            <Button fx:id="startBtn" alignment="CENTER" layoutX="185.0" layoutY="448.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="631.0" style="-fx-background-radius: 44; -fx-background-color: #0046A0;" text="Начать симуляцию" textFill="#e4e4e1">
                <font>
                   <Font name="Arial" size="50.0" />
                </font>
@@ -39,7 +39,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Pane layoutX="603.0" layoutY="221.0" prefHeight="119.0" prefWidth="714.0" style="-fx-background-color: #0046A0; -fx-background-radius: 44;">
+            <Pane layoutX="143.0" layoutY="75.0" prefHeight="119.0" prefWidth="714.0" style="-fx-background-color: #0046A0; -fx-background-radius: 44;">
                <children>
                   <Label layoutX="38.0" layoutY="5.0" text="Главное меню" textFill="#e4e4e1">
                      <font>
