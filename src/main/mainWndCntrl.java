@@ -1,15 +1,12 @@
 package main;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-//import javax.swing.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -22,13 +19,11 @@ import static utils.Constants.CHANCE;
 
 public class mainWndCntrl {
     private List<Human> people;
-    private int days = 30;
-    private int beginInfected = 1;
+    private final int days = 30;
     private Random random;
     private AtomicBoolean running = new AtomicBoolean();
-    private int speed = 500;
-    private int radius = 5;
-    private double chance = 0.5;
+    private int newSpeed = 500;
+    private int newRadius = 5;
     private boolean stopClicked = false;
 
     @FXML
@@ -41,8 +36,6 @@ public class mainWndCntrl {
     private MenuBar menuBar;
     @FXML
     private Slider speedSlider;
-    @FXML
-    private Label speedLabel;
     @FXML
     private Button stopBtn;
     @FXML
@@ -92,11 +85,11 @@ public class mainWndCntrl {
         });
 
         speedSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            speed = 1000 - newValue.intValue();
+            newSpeed = 1000 - newValue.intValue();
         });
 
         radiusSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            radius = newValue.intValue();
+            newRadius = newValue.intValue();
         });
 
         chanceSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
@@ -106,8 +99,6 @@ public class mainWndCntrl {
         });
 
         newSimulation();
-
-        //startSimulation();
     }
 
     public void startSimulation(){
@@ -120,7 +111,7 @@ public class mainWndCntrl {
                 update(gridPane, people);
                 Platform.runLater(() -> updateGrid(gridPane));
                 try{
-                    Thread.sleep(speed);             //менять скорость симуляции
+                    Thread.sleep(newSpeed);             //менять скорость симуляции
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }
@@ -145,7 +136,7 @@ public class mainWndCntrl {
                     person.infect();
                 }
                 if (person.getState() == Human.State.INFECTED) {
-                    int randIndex = person.randHumanFromRadius(radius, i, j);       //менять радиус рандомного заражения
+                    int randIndex = person.randHumanFromRadius(newRadius, i, j);       //менять радиус рандомного заражения
                     Human farPerson = people.get(randIndex);
                     farPerson.infect();
                     farPerson.update();

@@ -14,7 +14,6 @@ class Human {
 
     private State state;
     private int daysInfected;
-    private int daysRecovered;
     private int immunity;
     private double chance = 0.5;
     private Random random;
