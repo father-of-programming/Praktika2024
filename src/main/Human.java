@@ -16,6 +16,7 @@ class Human {
     private int daysInfected;
     private int daysRecovered;
     private int immunity;
+    private double chance = 0.5;
     private Random random;
 
 
@@ -30,6 +31,7 @@ class Human {
         return state;
     }
     public int getImmunity() { return immunity; }
+    public void setChance(double newchance) { this.chance = newchance; }
 
     public void bornInfect(){
         if (state == State.HEALTHY){
@@ -41,18 +43,18 @@ class Human {
     public void infect() {                      //Менять вероятность заражения
         switch(this.immunity){
             case 0:
-                if (random.nextDouble() < 0.5) {state = State.INFECTED;}
+                if (random.nextDouble() < this.chance) {state = State.INFECTED;}
                 break;
             case 1:
-                if (random.nextDouble() < 0.25) {state = State.INFECTED;}
+                if (random.nextDouble() < this.chance / 2) {state = State.INFECTED;}
                 this.immunity--;
                 break;
             case 2:
-                if (random.nextDouble() < 0.125) {state = State.INFECTED;}
+                if (random.nextDouble() < this.chance / 4) {state = State.INFECTED;}
                 this.immunity--;
                 break;
             case 3:
-                if (random.nextDouble() < 0.0625) {state = State.INFECTED;}
+                if (random.nextDouble() < this.chance / 8) {state = State.INFECTED;}
                 this.immunity--;
                 break;
         }

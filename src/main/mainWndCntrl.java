@@ -1,6 +1,7 @@
 package main;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -8,32 +9,36 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+//import javax.swing.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static utils.Constants.*;
 import static utils.Constants.HUMAN_SIZE;
+import static utils.Constants.SPEED;
+import static utils.Constants.RADIUS;
+import static utils.Constants.CHANCE;
 
 
 public class mainWndCntrl {
     private List<Human> people;
-    private int days;
+    private int days = 30;
+    private int beginInfected = 1;
     private Random random;
     private AtomicBoolean running = new AtomicBoolean();
     private int speed = 500;
+    private int radius = 5;
+    private double chance = 0.5;
+    private boolean stopClicked = false;
 
     @FXML
     private MenuItem exitBtn;
-
     @FXML
     private MenuItem stopBtnMenu;
-
     @FXML
     private GridPane gridPane;
-
     @FXML
     private MenuBar menuBar;
-
     @FXML
     private Slider speedSlider;
     @FXML
@@ -42,53 +47,73 @@ public class mainWndCntrl {
     private Button stopBtn;
     @FXML
     private Button resumeBtn;
+    @FXML
+    private Button resetBtn;
+    @FXML
+    private Slider radiusSlider;
+    @FXML
+    private Slider chanceSlider;
 
     @FXML
     void initialize() {
+        people = new ArrayList<>();
+        random = new Random();
+
         exitBtn.setOnAction(actionEvent -> {
             System.exit(0);
         });
 
-        stopBtn.setOnAction(event -> {
+        stopBtn.setOnAction(actionEvent -> {
             running.set(false);
+            this.stopClicked = true;
         });
-        resumeBtn.setOnAction(event -> {
+
+        resumeBtn.setOnAction(actionEvent -> {
             if (!running.get()) {
                 running.set(true);
                 resumeBtn.setText("Resume");
+                this.stopClicked = false;
                 startSimulation();
             }
         });
 
-        startSimulation();
+        resetBtn.setOnAction(actionEvent -> {
+            resumeBtn.setVisible(true);
+            stopBtn.setVisible(true);
+            resetBtn.setVisible(false);
+            resetBtn.setDisable(true);
 
-        speedSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            speed = newValue.intValue();
+            people.clear();
+            for (int i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
+                people.add(new Human());
+            }
+
+            newSimulation();
         });
 
-        people = new ArrayList<>();
-        this.days = 30;
-        random = new Random();
+        speedSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            speed = 1000 - newValue.intValue();
+        });
 
-        for (int i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
-            people.add(new Human());
-        }
+        radiusSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            radius = newValue.intValue();
+        });
 
-        /*/ Инфицируем начальное количество людей                               //начальное колво больных
-        for (int i = 0; i < 5; i++) {
-            people.get(random.nextInt(GRID_SIZE * GRID_SIZE)).bornInfect();
-        }*/
+        chanceSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            for (int i = 0; i < GRID_SIZE * GRID_SIZE; i++){
+                people.get(i).setChance(newValue.doubleValue());
+            }
+        });
 
-        people.get(GRID_SIZE*GRID_SIZE/2 + 25).bornInfect();
+        newSimulation();
 
-        updateGrid(gridPane);
-
-
+        //startSimulation();
     }
 
     public void startSimulation(){
         Thread simulationThread = new Thread(() ->{
-            while(true) {
+            int day;
+            for (day = 0; day < days; day++) {
                 if (!running.get()) {
                     break;
                 }
@@ -100,8 +125,16 @@ public class mainWndCntrl {
                     e.printStackTrace();
                 }
             }
+            if (!this.stopClicked) {
+                running.set(false);
+                resumeBtn.setVisible(false);
+                stopBtn.setVisible(false);
+                resetBtn.setVisible(true);
+                resetBtn.setDisable(false);
+            }
         });
         simulationThread.start();
+
     }
     private void update(GridPane grid, List<Human> people) {
         int i, j;
@@ -112,7 +145,7 @@ public class mainWndCntrl {
                     person.infect();
                 }
                 if (person.getState() == Human.State.INFECTED) {
-                    int randIndex = person.randHumanFromRadius(5, i, j);       //менять радиус рандомного заражения
+                    int randIndex = person.randHumanFromRadius(radius, i, j);       //менять радиус рандомного заражения
                     Human farPerson = people.get(randIndex);
                     farPerson.infect();
                     farPerson.update();
@@ -161,5 +194,19 @@ public class mainWndCntrl {
                 grid.add(rect, j, i);
             }
         }
+    }
+
+    public void newSimulation(){
+        for (int i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
+            people.add(new Human());
+        }
+
+        people.get((GRID_SIZE * GRID_SIZE+GRID_SIZE)/2).bornInfect();
+
+        resumeBtn.setText("Start");
+        speedSlider.setValue(SPEED);
+        radiusSlider.setValue(RADIUS);
+        chanceSlider.setValue(CHANCE);
+        updateGrid(gridPane);
     }
 }
