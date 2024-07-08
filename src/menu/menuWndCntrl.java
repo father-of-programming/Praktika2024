@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -50,7 +51,9 @@ public class menuWndCntrl {
             Parent root = loader.getRoot();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("ORVI simulation");
+            stage.setResizable(false);
+            stage.getIcons().add(new Image("utils\\ico.png"));
+            stage.setTitle("\u0421\u0438\u043C\u0443\u043B\u044F\u0442\u043E\u0440");
             stage.showAndWait();
 
         });

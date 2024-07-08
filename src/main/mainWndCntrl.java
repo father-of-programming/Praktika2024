@@ -25,15 +25,8 @@ public class mainWndCntrl {
     private int newSpeed = 500;
     private int newRadius = 5;
     private boolean stopClicked = false;
-
-    @FXML
-    private MenuItem exitBtn;
-    @FXML
-    private MenuItem stopBtnMenu;
     @FXML
     private GridPane gridPane;
-    @FXML
-    private MenuBar menuBar;
     @FXML
     private Slider speedSlider;
     @FXML
@@ -46,35 +39,47 @@ public class mainWndCntrl {
     private Slider radiusSlider;
     @FXML
     private Slider chanceSlider;
+    @FXML
+    private Label infectedLabel;
+    @FXML
+    private Label recoveredLabel;
+    @FXML
+    private Label deadLabel;
 
     @FXML
     void initialize() {
         people = new ArrayList<>();
         random = new Random();
 
-        exitBtn.setOnAction(actionEvent -> {
-            System.exit(0);
-        });
-
         stopBtn.setOnAction(actionEvent -> {
             running.set(false);
+            resumeBtn.setDisable(false);
             this.stopClicked = true;
+            stopBtn.setDisable(true);
         });
 
         resumeBtn.setOnAction(actionEvent -> {
             if (!running.get()) {
                 running.set(true);
-                resumeBtn.setText("Resume");
+                resumeBtn.setText("\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"); //Продолжить
                 this.stopClicked = false;
                 startSimulation();
+                resumeBtn.setDisable(true);
+                stopBtn.setDisable(false);
             }
         });
 
         resetBtn.setOnAction(actionEvent -> {
             resumeBtn.setVisible(true);
+            resumeBtn.setDisable(false);
             stopBtn.setVisible(true);
+            stopBtn.setDisable(true);
             resetBtn.setVisible(false);
             resetBtn.setDisable(true);
+
+            infectedLabel.setText("-");
+            recoveredLabel.setText("-");
+            deadLabel.setText("-");
 
             people.clear();
             for (int i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
@@ -109,9 +114,13 @@ public class mainWndCntrl {
                     break;
                 }
                 update(gridPane, people);
-                Platform.runLater(() -> updateGrid(gridPane));
+
+                Platform.runLater(() -> {
+                    updateLabels();
+                    updateGrid(gridPane);
+                });
                 try{
-                    Thread.sleep(newSpeed);             //менять скорость симуляции
+                    Thread.sleep(newSpeed);
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }
@@ -136,7 +145,7 @@ public class mainWndCntrl {
                     person.infect();
                 }
                 if (person.getState() == Human.State.INFECTED) {
-                    int randIndex = person.randHumanFromRadius(newRadius, i, j);       //менять радиус рандомного заражения
+                    int randIndex = person.randHumanFromRadius(newRadius, i, j);
                     Human farPerson = people.get(randIndex);
                     farPerson.infect();
                     farPerson.update();
@@ -194,10 +203,26 @@ public class mainWndCntrl {
 
         people.get((GRID_SIZE * GRID_SIZE+GRID_SIZE)/2).bornInfect();
 
-        resumeBtn.setText("Start");
+        resumeBtn.setText("\u041D\u0430\u0447\u0430\u0442\u044C"); //Начать
         speedSlider.setValue(SPEED);
         radiusSlider.setValue(RADIUS);
         chanceSlider.setValue(CHANCE);
         updateGrid(gridPane);
+    }
+
+    public void updateLabels(){
+        float infected = 0, recovered = 0, dead = 0;
+        for (Human human : people){
+            if (human.getState() == Human.State.INFECTED) { infected++; }
+            if (human.getState() == Human.State.RECOVERED) { recovered++; }
+            if (human.getState() == Human.State.DEAD) { dead++; }
+        }
+        infected = (infected / (GRID_SIZE * GRID_SIZE)) * 100;
+        recovered = (recovered / (GRID_SIZE * GRID_SIZE)) * 100;
+        dead = (dead / (GRID_SIZE * GRID_SIZE)) * 100;
+
+        infectedLabel.setText(String.format("%.2f%%", infected));
+        recoveredLabel.setText(String.format("%.2f%%", recovered));
+        deadLabel.setText(String.format("%.2f%%", dead));
     }
 }

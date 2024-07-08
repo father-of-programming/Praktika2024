@@ -3,9 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,22 +12,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="927.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.mainWndCntrl">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.mainWndCntrl">
     <children>
-        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="919.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
+        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="899.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
             <children>
-            <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="1200.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                        <MenuItem fx:id="stopBtn1" mnemonicParsing="false" text="Stop simulation" />
-                        <MenuItem fx:id="backBtn" mnemonicParsing="false" text="Back" />
-                    <MenuItem fx:id="exitBtn" mnemonicParsing="false" text="Exit" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-            <GridPane fx:id="gridPane" gridLinesVisible="true" layoutY="26.0" prefHeight="900.0" prefWidth="900.0" style="-fx-border-color: black; -fx-grid-lines-visible: true;">
+            <GridPane fx:id="gridPane" gridLinesVisible="true" prefHeight="900.0" prefWidth="900.0" style="-fx-border-color: black; -fx-grid-lines-visible: true;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -135,30 +122,30 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <Button fx:id="stopBtn" layoutX="997.0" layoutY="839.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Stop">
+            <Button fx:id="stopBtn" disable="true" layoutX="997.0" layoutY="839.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Стоп">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Slider fx:id="speedSlider" layoutX="908.0" layoutY="160.0" majorTickUnit="100.0" max="900.0" min="100.0" minorTickCount="0" prefHeight="38.0" prefWidth="278.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="500.0">
+            <Slider fx:id="speedSlider" layoutX="908.0" layoutY="64.0" majorTickUnit="100.0" max="900.0" min="100.0" minorTickCount="0" prefHeight="38.0" prefWidth="278.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="500.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Slider>
-            <Slider fx:id="radiusSlider" blockIncrement="1.0" layoutX="908.0" layoutY="298.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" prefHeight="14.0" prefWidth="278.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="5.0">
+            <Slider fx:id="radiusSlider" blockIncrement="1.0" layoutX="908.0" layoutY="158.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" prefHeight="14.0" prefWidth="278.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="5.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Slider>
-            <Slider fx:id="chanceSlider" blockIncrement="0.1" layoutX="908.0" layoutY="420.0" majorTickUnit="0.1" max="1.0" min="0.1" minorTickCount="0" prefHeight="14.0" prefWidth="278.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="0.5">
+            <Slider fx:id="chanceSlider" blockIncrement="0.1" layoutX="908.0" layoutY="253.0" majorTickUnit="0.1" max="1.0" min="0.1" minorTickCount="0" prefHeight="14.0" prefWidth="278.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="0.5">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Slider>
-            <Label fx:id="speedLabel" layoutX="990.0" layoutY="114.0" text="Скорость симуляции" />
-            <Button fx:id="resumeBtn" layoutX="997.0" layoutY="797.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Start">
+            <Label fx:id="speedLabel" layoutX="990.0" layoutY="40.0" text="Скорость симуляции" />
+            <Button fx:id="resumeBtn" layoutX="997.0" layoutY="797.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Начать">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Label layoutX="956.0" layoutY="247.0" text="Радиус рандомного заболевания" />
-            <Label layoutX="995.0" layoutY="379.0" text="Шанс заболевания" />
-            <GridPane gridLinesVisible="true" layoutX="925.0" layoutY="508.0" prefHeight="210.0" prefWidth="247.0">
+            <Label layoutX="988.0" layoutY="132.0" text="Радиус перемещения" />
+            <Label layoutX="976.0" layoutY="224.0" text="Вероятность заболевания" />
+            <GridPane gridLinesVisible="true" layoutX="926.0" layoutY="561.0" prefHeight="210.0" prefWidth="247.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="29.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="218.0" minWidth="10.0" prefWidth="218.0" />
@@ -180,17 +167,26 @@
                   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: FF4500;" GridPane.rowIndex="4" />
                   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.rowIndex="5" />
                   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lime;" GridPane.rowIndex="6" />
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text=" Здоровый человек, с иммунитетом 3" GridPane.columnIndex="1" />
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text=" Здоровый человек, с иммунитетом 2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text=" Здоровый человек, с иммунитетом 1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text=" Здоровый человек, без иммунитета" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text=" Здоровый человек с иммунитетом 3" GridPane.columnIndex="1" />
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text=" Здоровый человек с иммунитетом 2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text=" Здоровый человек с иммунитетом 1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text=" Здоровый человек без иммунитета" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label alignment="TOP_LEFT" contentDisplay="CENTER" text=" Больной человек" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text=" Мертвый человек" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text=" Выздоровевший человек" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                </children>
             </GridPane>
-            <Label layoutX="1011.0" layoutY="491.0" text="Обозначения" />
-            <Button fx:id="resetBtn" disable="true" layoutX="997.0" layoutY="810.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Reset" visible="false" />
+            <Label layoutX="1010.0" layoutY="532.0" text="Обозначения" />
+            <Button fx:id="resetBtn" disable="true" layoutX="997.0" layoutY="797.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Заново" visible="false" />
+            <Separator layoutX="947.0" layoutY="308.0" prefWidth="200.0" />
+            <Separator layoutX="950.0" layoutY="509.0" prefWidth="200.0" />
+            <Label layoutX="1020.0" layoutY="317.0" text="Статистика" AnchorPane.topAnchor="317.0" />
+            <Label layoutX="950.0" layoutY="399.0" text="Выздоровели:" />
+            <Label layoutX="950.0" layoutY="441.0" text="Погибли:" />
+            <Label fx:id="infectedLabel" layoutX="1119.0" layoutY="355.0" text="-" />
+            <Label layoutX="950.0" layoutY="355.0" text="Заражены:" />
+            <Label fx:id="recoveredLabel" layoutX="1119.0" layoutY="399.0" text="-" />
+            <Label fx:id="deadLabel" layoutX="1119.0" layoutY="441.0" text="-" />
             </children>
         </AnchorPane>
     </children>

@@ -39,23 +39,33 @@ class Human {
         }
     }
 
-    public void infect() {                      //Менять вероятность заражения
-        switch(this.immunity){
-            case 0:
-                if (random.nextDouble() < this.chance) {state = State.INFECTED;}
-                break;
-            case 1:
-                if (random.nextDouble() < this.chance / 2) {state = State.INFECTED;}
-                this.immunity--;
-                break;
-            case 2:
-                if (random.nextDouble() < this.chance / 4) {state = State.INFECTED;}
-                this.immunity--;
-                break;
-            case 3:
-                if (random.nextDouble() < this.chance / 8) {state = State.INFECTED;}
-                this.immunity--;
-                break;
+    public void infect() {
+        if (state != State.DEAD) {
+            switch (this.immunity) {
+                case 0:
+                    if (random.nextDouble() < this.chance) {
+                        state = State.INFECTED;
+                    }
+                    break;
+                case 1:
+                    if (random.nextDouble() < this.chance / 2) {
+                        state = State.INFECTED;
+                    }
+                    this.immunity--;
+                    break;
+                case 2:
+                    if (random.nextDouble() < this.chance / 4) {
+                        state = State.INFECTED;
+                    }
+                    this.immunity--;
+                    break;
+                case 3:
+                    if (random.nextDouble() < this.chance / 8) {
+                        state = State.INFECTED;
+                    }
+                    this.immunity--;
+                    break;
+            }
         }
     }
 
@@ -74,7 +84,7 @@ class Human {
     public void update() {
         if (state == State.INFECTED) {
             daysInfected++;
-            if (daysInfected > 5) {         //менять колво дней болезни до выздоровления
+            if (daysInfected > 5) {
                 recover();
             }
         }
