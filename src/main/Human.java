@@ -125,6 +125,7 @@ class Human {
         temp = temp * (r - abs(board));
         j += temp;
         if (j < 0) j = 0;
+        else if (j > 49) j = 49;
         int res = i * GRID_SIZE + j;
 
         if (res < GRID_SIZE * GRID_SIZE) return res;
