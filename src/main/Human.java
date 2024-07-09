@@ -1,12 +1,9 @@
 package main;
-import javafx.scene.layout.GridPane;
 
 import java.util.Random;
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Math.abs;
-import static java.lang.Math.sqrt;
 import static utils.Constants.GRID_SIZE;
 
 class Human {

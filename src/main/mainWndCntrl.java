@@ -106,7 +106,7 @@ public class mainWndCntrl {
         newSimulation();
     }
 
-    public void startSimulation(){
+    private void startSimulation(){
         Thread simulationThread = new Thread(() ->{
             int day;
             for (day = 0; day < days; day++) {
@@ -196,7 +196,7 @@ public class mainWndCntrl {
         }
     }
 
-    public void newSimulation(){
+    private void newSimulation(){
         for (int i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
             people.add(new Human());
         }
@@ -210,7 +210,7 @@ public class mainWndCntrl {
         updateGrid(gridPane);
     }
 
-    public void updateLabels(){
+    private void updateLabels(){
         float infected = 0, recovered = 0, dead = 0;
         for (Human human : people){
             if (human.getState() == Human.State.INFECTED) { infected++; }
